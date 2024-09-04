@@ -6,6 +6,7 @@ import { useUserContext } from "../../hooks/useUserContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { userSchema } from "../../types/validation";
 import { UserFormInputs } from "../../types/User";
+import { maskPhoneNumber } from "../../utils";
 
 const UserForm: FC = () => {
   const { addUser, updateUser, users } = useUserContext();
@@ -14,6 +15,7 @@ const UserForm: FC = () => {
   const userToEdit = users.find((user) => user.id === id);
 
   const {
+    setValue,
     register,
     handleSubmit,
     formState: { errors },
@@ -52,7 +54,17 @@ const UserForm: FC = () => {
           <Input {...register("address")} placeholder="Address" />
           {errors.address && <Error>{errors.address.message}</Error>}
 
-          <Input {...register("phoneNumber")} placeholder="Phone Number" />
+          <Input
+            {...register("phoneNumber")}
+            placeholder="Phone Number"
+            type="text"
+            maxLength={15}
+            onChange={(e) => {
+              const value = e.target.value;
+              const masked = maskPhoneNumber(value);
+              setValue("phoneNumber", masked);
+            }}
+          />
           {errors.phoneNumber && <Error>{errors.phoneNumber.message}</Error>}
         </div>
         <Button type="submit">Save</Button>
