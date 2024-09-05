@@ -1,50 +1,30 @@
-# React + TypeScript + Vite
+# React CRUD App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a user CRUD application built with React, TypeScript, React Hook Form, Zod, Context API, and Styled Components. The application allows adding, editing, listing, and deleting users, saving data in `localStorage`.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React;
+- TypeScript;
+- Vite;
+- React Hook Form;
+- Zod;
+- Styled Components.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Add User**: A form to add a new user.
+- **Edit User**: A form to edit an existing user.
+- **List Usuer**: A list of registered users.
+- **Persistence with `localStorage`**: Saves user data locally in the browser
 
-- Configure the top-level `parserOptions` property like this:
+## Project Config
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- git clone <https://github.com/lemamon/react-crud-app.git>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- cd react-crud-app
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- yarn install
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- yarn dev
+
