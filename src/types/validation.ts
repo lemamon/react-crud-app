@@ -7,7 +7,7 @@ const isAdult = (birthDate: string) => {
   return Math.abs(ageDate.getUTCFullYear() - 1970) >= 18;
 };
 
-const phoneNumberRegex = /^\+?[1-9]\d{8,14}$/;
+const phoneNumberRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
 
 export const userSchema = z.object({
   name: z.string().min(1, "Name is required"),
